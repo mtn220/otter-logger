@@ -47,6 +47,9 @@ td {
 #brightness-slider {
     max-width: 400px;
 }
+#speed-selector {
+    max-width: 120px;
+}
 .append-text {
     font-size: smaller;
     margin: auto 0.5rem;

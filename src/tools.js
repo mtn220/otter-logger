@@ -62,6 +62,28 @@ inputsObj['brightness-slider'].addEventListener('input', (event) => {
     });
 });
 
+const speedSelector = document.querySelector('#speed-selector');
+const speedButtonsByValue = {
+    0.25: document.querySelector('#speed-025-button'),
+    1: document.querySelector('#speed-1-button'),
+    2: document.querySelector('#speed-2-button'),
+    3: document.querySelector('#speed-3-button'),
+};
+function updateSpeedButtonsActiveState(speed) {
+    Object.entries(speedButtonsByValue).forEach(([value, button]) => {
+        button.classList.toggle('active', Number(value) === speed);
+    });
+}
+function setVideoSpeed(speed) {
+    speedSelector.value = speed;
+    updateSpeedButtonsActiveState(speed);
+    emitTo('video', 'set-video-playback-rate', { value: speed });
+}
+speedSelector.addEventListener('change', (event) => {
+    setVideoSpeed(Number(event.target.value));
+});
+updateSpeedButtonsActiveState(Number(speedSelector.value));
+
 const buttonsNodeList = document.querySelectorAll('button');
 const buttonsObj = {};
 buttonsNodeList.forEach((node) => {
@@ -149,6 +171,10 @@ buttonsObj['reset-brightness-button'].onclick = () => {
         value: 'brightness(100%)',
     });
 };
+buttonsObj['speed-025-button'].onclick = () => setVideoSpeed(0.25);
+buttonsObj['speed-1-button'].onclick = () => setVideoSpeed(1);
+buttonsObj['speed-2-button'].onclick = () => setVideoSpeed(2);
+buttonsObj['speed-3-button'].onclick = () => setVideoSpeed(3);
 
 function handleDescriptionInput() {
     if (inputsObj['description'].value) {

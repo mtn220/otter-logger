@@ -38,6 +38,52 @@
                     </button>
                 </div>
                 <div class="tool-row">
+                    <div class="tool-row-flex align-items-center">
+                        <label class="form-label me-2">Video Speed</label>
+                        <div class="btn-group me-2" role="group" aria-label="video speed selector quick buttons">
+                            <button
+                                class="btn btn-outline-secondary btn-sm"
+                                id="speed-025-button"
+                            >
+                                0.25x
+                            </button>
+                            <button
+                                class="btn btn-outline-secondary btn-sm"
+                                id="speed-1-button"
+                            >
+                                1x
+                            </button>
+                            <button
+                                class="btn btn-outline-secondary btn-sm"
+                                id="speed-2-button"
+                            >
+                                2x
+                            </button>
+                            <button
+                                class="btn btn-outline-secondary btn-sm"
+                                id="speed-3-button"
+                            >
+                                3x
+                            </button>
+                        </div>
+                        <select
+                            id="speed-selector"
+                            class="form-select form-select-sm"
+                        >
+                            <option value="0.25">0.25</option>
+                            <option value="0.5">0.5</option>
+                            <option value="0.75">0.75</option>
+                            <option value="1" selected>Normal</option>
+                            <option value="1.25">1.25</option>
+                            <option value="1.5">1.5</option>
+                            <option value="1.75">1.75</option>
+                            <option value="2">2</option>
+                            <option value="2.5">2.5</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="tool-row">
                     <div class="tool-row-flex">
                         <button
                             class="btn btn-success me-2"
@@ -45,7 +91,10 @@
                         >
                             Previous Video
                         </button>
-                        <button class="btn btn-success me-2" id="next-video-button">
+                        <button
+                            class="btn btn-success me-2"
+                            id="next-video-button"
+                        >
                             Next Video
                         </button>
                         <button
